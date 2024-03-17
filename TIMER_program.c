@@ -1,0 +1,84 @@
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
+#include "TIMER_interface.h"
+#include "TIMER_private.h"
+#include "TIMER_config.h"
+void TIMER0_Init(void)
+{
+	SET_BIT(TCCR0,TCCR0_WGM01);
+	SET_BIT(TCCR0,TCCR0_WGM00);
+
+	//OCR0 = 125;
+	SET_BIT(TCCR0,TCCR0_COM01);
+	CLR_BIT(TCCR0,TCCR0_COM00);
+
+
+	//SET_BIT(TIMSK,TIMSK_OCIE0);
+
+	CLR_BIT(TCCR0,TCCR0_CS02);
+	SET_BIT(TCCR0,TCCR0_CS01);
+	SET_BIT(TCCR0,TCCR0_CS00);
+
+}
+
+void TIMER0_voidSetOcrValue(u8 Copy_u8Value)
+{
+	OCR0 = Copy_u8Value;
+
+}
+void TIMER2_Init(void)
+{
+	SET_BIT(TCCR2,TCCR2_WGM21);
+	SET_BIT(TCCR2,TCCR2_WGM20);
+
+	//OCR0 = 125;
+	SET_BIT(TCCR2,TCCR2_COM21);
+	CLR_BIT(TCCR2,TCCR2_COM20);
+
+
+	//SET_BIT(TIMSK,TIMSK_OCIE0);
+
+	CLR_BIT(TCCR2,TCCR2_CS22);
+	SET_BIT(TCCR0,TCCR2_CS21);
+	SET_BIT(TCCR2,TCCR2_CS20);
+
+}
+
+void TIMER2_voidSetOcrValue(u8 Copy_u8Value)
+{
+	OCR2 = Copy_u8Value;
+
+}
+
+
+void TIMER1_voidInit(void)
+{
+	//WGM mode 14
+	CLR_BIT(TCCR1A,TCCR1A_WGM10);
+	SET_BIT(TCCR1A,TCCR1A_WGM11);
+	SET_BIT(TCCR1B,TCCR1B_WGM12);
+	SET_BIT(TCCR1B,TCCR1B_WGM13);
+
+	SET_BIT(TCCR1A,TCCR1A_COM1A1);
+	CLR_BIT(TCCR1A,TCCR1A_COM1A0);
+
+	// prescaler
+	CLR_BIT(TCCR1B,TCCR1B_CS10);
+	SET_BIT(TCCR1B,TCCR1B_CS11);
+	CLR_BIT(TCCR1B,TCCR1B_CS12);
+
+
+
+
+
+}
+void TIMER1_voidSetOcrValue(u16 Copy_u16value)
+{
+
+	OCR1A =Copy_u16value;
+
+}
+void TIMER1_voidSetIcrValue(u16 Copy_u16value)
+{
+	ICR1 =Copy_u16value;
+}
