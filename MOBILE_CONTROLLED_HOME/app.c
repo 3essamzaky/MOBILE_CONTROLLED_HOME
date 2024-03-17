@@ -278,33 +278,35 @@ void func(u8 *PTR)
 		}
 		else if(Local_u8choise == '3' )
 		{
+			SPI_u8Tranceive(3);
+
 			CLCD_voidSetClear();
 			CLCD_voidSendString("The light opened");
-			DIO_voidSetPinVal(PORTC_REG,PIN6,PIN_VAL_HIGH);
-			DIO_voidSetPinVal(PORTC_REG,PIN7,PIN_VAL_HIGH);
-
 		}
 		else if(Local_u8choise == '4' )
 		{
+			SPI_u8Tranceive(4);
+
 			CLCD_voidSetClear();
 			CLCD_voidSendString("The light closed");
-			DIO_voidSetPinVal(PORTC_REG,PIN6,PIN_VAL_LOW);
-			DIO_voidSetPinVal(PORTC_REG,PIN7,PIN_VAL_LOW);
+
 
 		}
 		else if(Local_u8choise == '5')
 		{
+			SPI_u8Tranceive(5);
+
 			CLCD_voidSetClear();
 			CLCD_voidSendString("The fan opened");
-			DIO_voidSetPinVal(PORTC_REG,PIN4,PIN_VAL_HIGH);
 
 
 		}
 		else if(Local_u8choise == '6')
 		{
+			SPI_u8Tranceive(6);
+
 			CLCD_voidSetClear();
 			CLCD_voidSendString("The fan closed");
-			DIO_voidSetPinVal(PORTC_REG,PIN4,PIN_VAL_LOW);
 
 		}
 		else if(Local_u8choise == '7')

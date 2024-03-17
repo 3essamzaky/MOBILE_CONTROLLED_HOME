@@ -149,7 +149,7 @@ LOAD d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x326a
+.text           0x00000000     0x3246
  *(.vectors)
  .vectors       0x00000000       0x54 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -351,24 +351,24 @@ LOAD d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00001df8                Compare_string
  .text.main     0x00001e78      0x48a ./app.o
                 0x00001e78                main
- .text.func     0x00002302      0x824 ./app.o
+ .text.func     0x00002302      0x800 ./app.o
                 0x00002302                func
- .text.Alarm    0x00002b26      0x6aa ./app.o
-                0x00002b26                Alarm
- .text.libgcc   0x000031d0       0x28 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000031d0                __udivmodhi4
- .text.libgcc   0x000031f8        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000031f8        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000031f8        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x000031f8       0x38 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x000031f8                __prologue_saves__
- .text.libgcc   0x00003230       0x36 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00003230                __epilogue_restores__
-                0x00003266                . = ALIGN (0x2)
+ .text.Alarm    0x00002b02      0x6aa ./app.o
+                0x00002b02                Alarm
+ .text.libgcc   0x000031ac       0x28 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x000031ac                __udivmodhi4
+ .text.libgcc   0x000031d4        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000031d4        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000031d4        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000031d4       0x38 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000031d4                __prologue_saves__
+ .text.libgcc   0x0000320c       0x36 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000320c                __epilogue_restores__
+                0x00003242                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00003266        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00003266                exit
-                0x00003266                _exit
+ .fini9         0x00003242        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00003242                exit
+                0x00003242                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -387,11 +387,11 @@ LOAD d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00003266        0x4 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00003242        0x4 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000326a                _etext = .
+                0x00003246                _etext = .
 
-.data           0x00800060      0x2c4 load address 0x0000326a
+.data           0x00800060      0x2c4 load address 0x00003246
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -462,8 +462,8 @@ LOAD d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .bss.flag      0x00800324        0x1 ./app.o
  *(COMMON)
                 0x00800325                PROVIDE (__bss_end, .)
-                0x0000326a                __data_load_start = LOADADDR (.data)
-                0x0000352e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00003246                __data_load_start = LOADADDR (.data)
+                0x0000350a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800325        0x0
                 0x00800325                PROVIDE (__noinit_start, .)
@@ -488,7 +488,7 @@ LOAD d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x2c70
+.stab           0x00000000     0x2c58
  *(.stab)
  .stab          0x00000000      0xbb8 ./CLCD_program.o
  .stab          0x00000bb8      0x45c ./DIO_program.o
@@ -499,8 +499,8 @@ LOAD d:/imt/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                 0x3cc (size before relaxing)
  .stab          0x0000153c      0x48c ./UART_program.o
                                 0x690 (size before relaxing)
- .stab          0x000019c8     0x12a8 ./app.o
-                               0x14ac (size before relaxing)
+ .stab          0x000019c8     0x1290 ./app.o
+                               0x1494 (size before relaxing)
 
 .stabstr        0x00000000      0xd99
  *(.stabstr)
