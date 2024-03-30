@@ -110,10 +110,7 @@ void CLCD_voidWriteSpecialCharacter(u8 *Copy_Pattern,
 }
 void CLCD_voidSetClear(void)
 {
-	CLCD_voidSetPos(0,0);
-	CLCD_voidSendString("                         ");
-	CLCD_voidSetPos(1,0);
-	CLCD_voidSendString("                         ");
+	CLCD_voidSendCommand(0b00000001);
 	CLCD_voidSetPos(0,0);
 
 }

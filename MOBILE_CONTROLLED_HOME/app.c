@@ -43,6 +43,8 @@ void main(void)
 	DIO_voidSetPinDir(PORTB_REG,PIN3,PIN_DIR_OUT);
 
 	/*select master output*/
+	DIO_voidSetPinDir(PORTB_REG,PIN0,PIN_DIR_OUT);
+
 	DIO_voidSetPinDir(PORTB_REG,PIN5,PIN_DIR_OUT);
 	/**/
 	DIO_voidSetPinDir(PORTB_REG,PIN4,PIN_DIR_OUT);
@@ -67,8 +69,10 @@ void main(void)
 	{
 		user_name[10];
 
+
+
 		CLCD_voidSetClear();
-		CLCD_voidSendString("Ente username");
+		CLCD_voidSendString("Enter username");
 
 		USART_voidSendString("Enter The User Name\r\n");
 		_delay_ms(100);
@@ -128,7 +132,7 @@ void main(void)
 			func(user_arr[7].password);
 
 		}
-		else if(Compare_string(user_name,user_arr[8].username))
+		else if(Compare_string(user_name+2,user_arr[8].username))
 		{
 
 			func(user_arr[8].password);
@@ -143,7 +147,6 @@ void main(void)
 		else
 		{
 			USART_voidSendString("\r\nusername not found\r\n");
-			_delay_ms(500);
 
 		}
 
@@ -208,7 +211,7 @@ void func(u8 *PTR)
 
 			}
 
-			_delay_ms(500);
+			_delay_ms(200);
 
 
 		}
@@ -217,7 +220,7 @@ void func(u8 *PTR)
 	while(flag)
 	{
 
-		u8 Local_u8choise =0;
+		u8 Local_u8choise ;
 		u8 Local_u8Data = 0;
 		USART_voidSendString("\r\nchoose:\r\n");
 		USART_voidSendString("1 for open the door");
@@ -244,15 +247,22 @@ void func(u8 *PTR)
 		USART_voidSendString("8 for adjust fan speed");
 		USART_voidSendString("\r\n");
 
+
 		CLCD_voidSetClear();
 		CLCD_voidSendString("choose:1or2or3");
 		CLCD_voidSetPos(1,0);
 		CLCD_voidSendString("4or5or6or7or8");
 		Local_u8choise = USART_voidRecieveByte();
-		if(Local_u8choise == '1' )
+	//	USART_voidReceiveString(Local_u8choise);
+//		CLCD_voidSendString("your choise is");
+//		CLCD_voidSetPos(1,0);
+//		CLCD_voidSendString(Local_u8choise);
+//		_delay_ms(1000);
+		if(Local_u8choise == '1')
 		{
 			CLCD_voidSetClear();
 			CLCD_voidSendString("The door opened");
+			DIO_voidSetPinVal(PORTB_REG,PIN0,PIN_VAL_HIGH);
 			for(u16 j= 750;j<1500;j++)
 			{
 
@@ -263,7 +273,7 @@ void func(u8 *PTR)
 
 
 		}
-		else if(Local_u8choise =='2' )
+		else if(Local_u8choise == '2' )
 		{
 			CLCD_voidSetClear();
 			CLCD_voidSendString("The door closed");
@@ -319,7 +329,7 @@ void func(u8 *PTR)
 		else if(Local_u8choise == '8')
 		{
 
-			SPI_u8Tranceive(2);
+			  SPI_u8Tranceive(2);
 
 		}
 		else
@@ -346,17 +356,6 @@ void Alarm(void)
 	DIO_voidSetPinVal(PORTC_REG,PIN3,PIN_VAL_HIGH);
 
 	_delay_ms(200);
-	DIO_voidSetPinVal(PORTC_REG,PIN5,PIN_VAL_LOW);
-	DIO_voidSetPinVal(PORTC_REG,PIN3,PIN_VAL_LOW);
 
-	_delay_ms(200);
-	DIO_voidSetPinVal(PORTC_REG,PIN5,PIN_VAL_HIGH);
-	DIO_voidSetPinVal(PORTC_REG,PIN3,PIN_VAL_HIGH);
-
-	_delay_ms(500);
-	DIO_voidSetPinVal(PORTC_REG,PIN5,PIN_VAL_LOW);
-	DIO_voidSetPinVal(PORTC_REG,PIN3,PIN_VAL_LOW);
-
-	_delay_ms(200);
 
 }
